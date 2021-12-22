@@ -9,8 +9,8 @@ These tools are all things I find useful while doing any kind of Automatic Speec
 * JSON Formatter for Huggingface Seq2Seq (GEC usage)
 * Audio Data Augmentation
 * KenLM ARPA and Binary file Notebook
-* Facebook (fairseq) Manifest Notebook
-* Example of Wav2Vec2 with KenLM + Hotwords Pipeline
+* Facebook (fairseq) Make Manifest Notebook
+* Example of Wav2Vec2 with KenLM + Hotwords Pipeline (using PyCTCDecode)
 
 
 ## Get Average SNR for File of Audio Files
@@ -33,7 +33,7 @@ If you have a low SNR (the noise is more powerful than the actual signal) there 
 - pip install argparse
 - pip install numpy
 
-
+**Steps:**
 1. Install packages listed above
 2. Clone repository or download get_avg_snr.py
 3. Open OS command line interface (Command Prompt in Windows)
@@ -83,7 +83,7 @@ cheese -> cheeze
 - pip install nltk
 - pip install argparse
 
-
+**Steps:**
 1. Install packages listed above
 2. Clone repository or download phoneticNoiser.py
 3. Open OS command line interface (Command Prompt in Windows)
@@ -118,6 +118,7 @@ This allows a transformer model or other sequence to sequence architecture to re
 **Necessary Installs:**
 - pip install argparse
 
+**Steps:**
 1. Install packages listed above
 2. Clone repository or download seq2seq_json_formatter.py
 3. Open OS command line interface (Command Prompt in Windows)
@@ -151,6 +152,7 @@ This is an extension of the work done [here](https://github.com/waveletdeboshir/
 
 *Already included*
 
+**Steps:**
 1. Upload audio-data-augment.ipynb to your Google Drive
 2. Follow instructions within Colab notebook
 
@@ -163,6 +165,7 @@ Clear and easy notebook to create Ken Language Model (KenLM) ARPA and binary fil
 
 *Already included*
 
+**Steps:**
 1. Upload kenlm_notebook.ipynb to your Google Drive
 2. Follow instructions within Colab notebook
 
@@ -181,20 +184,23 @@ If you want to finetune Wav2Vec2 (at least as of 2021) from Fairseq using a comm
 - pip install argparse
 - pip install pandas
 
-
+**Steps:**
 1. Upload make_manifest_notebook.ipynb to your Google Drive
-2. Upload modLibri_labels.py, wav2vec2_lexicon.py, and ltr_counter.py
+2. Upload modLibri_labels.py, wav2vec2_lexicon.py, and ltr_counter.py also to your Google Drive
 3. Follow instructions within Colab notebook
 
-## Example of Wav2Vec2 with KenLM + Hotwords Pipeline
+## Example of Wav2Vec2 with KenLM + Hotwords Pipeline (from PyCTCDecode)
 ### Description
-*This is assuming you already have a trained/fine-tuned Wav2Vec2 model.*
+*This is assuming you already have a trained/fine-tuned Wav2Vec2 model and saved your processor to the same directory.*
+This notebook offers a completed Wav2Vec2 Inferencing pipeline with Word Error Rate averaging (and individual scoring) as well as results with no language model, with a language model and with a language model plus hotwords for comparison purposes. All the credit for the actual PyCTCDecode code and KenLM code goes to their original authors - the purpose of this notebook is to have the pipeline with all essential code in one place, end-to-end for easy use.
 
-*UPDATE (12-22-21): This pipeline is now nearly identical to the Huggingface Transformers Wav2Vec2 + PyCTCDecode found [here](https://github.com/patrickvonplaten/Wav2Vec2_PyCTCDecode). The 
+*UPDATE (12-22-21): This pipeline is now nearly identical to the Huggingface Transformers Wav2Vec2 + PyCTCDecode found [here](https://github.com/patrickvonplaten/Wav2Vec2_PyCTCDecode). The main difference is that this version walks you through every step of the process while the latest version from Huggingface only requires an additional argument to a command line implementation. If you want to see what is going on 'under the hood' then I would recommend the Colab notebook included here; otherwise, I would recommend that you follow the instructions given [here](https://github.com/patrickvonplaten/Wav2Vec2_PyCTCDecode)
+
 ### Instructions
 **Necessary Installs:**
 
 *Already included*
 
-1. Upload audio-data-augment.ipynb to your Google Drive
+**Steps:**
+1. Upload WER_PyCTCDecode_Notebook.ipynb to your Google Drive
 2. Follow instructions within Colab notebook
