@@ -156,31 +156,41 @@ This is an extension of the work done [here](https://github.com/waveletdeboshir/
 
 ## KenLM ARPA and Binary File Notebook
 ### Description
+Clear and easy notebook to create Ken Language Model (KenLM) ARPA and binary files from text files. All you need is a basic .txt file containing the text you want to base your KenLM off of - the most common demonstration is creating a KenLM from a text file of the Bible. 
 
 ### Instructions
 **Necessary Installs:**
 
 *Already included*
 
-1. Upload audio-data-augment.ipynb to your Google Drive
+1. Upload kenlm_notebook.ipynb to your Google Drive
 2. Follow instructions within Colab notebook
 
-## Facebook (fairseq) Manifest Creation Notebook
-
+## Facebook (fairseq) Make Manifest Notebook
 ### Description
+*Note: this is pretty much only if you want to fine-tune a Wav2Vec2 model using Fairseq scripts*
+
+If you want to finetune Wav2Vec2 (at least as of 2021) from Fairseq using a command line interface rather than the Huggingface implementation, it is necessary to create a manifest file and follow the instructions given [here](https://bleepcoder.com/fairseq/680709778/i-want-to-finetune-this-model-with-my-own-audio-files-how). The manifest file stores information the Fairseq training code requies to fine-tune a Wav2Vec2 model including: train.tsv, train.wrd, train.ltr, valid.tsv (or dev_other.tsv depending on the name scheme), valid.wrd (or dev_other.wrd), valid.ltr (or dev_other.ltr), dict.ltr.txt, and lexicon.txt. The code in the notebook along with the modified labels code (modLibri_labels.py, wav2vec2_lexicon.py) included here are intended to make this process easier and to help you avoid all the problems I encountered the first time I attempted this task.
 
 ### Instructions
 **Necessary Installs:**
 
-*Already included*
+*Already included for Notebook*
 
-1. Upload audio-data-augment.ipynb to your Google Drive
-2. Follow instructions within Colab notebook
+*For extra scripts (if you haven't already within Colab)*
+- pip install argparse
+- pip install pandas
+
+
+1. Upload make_manifest_notebook.ipynb to your Google Drive
+2. Upload modLibri_labels.py, wav2vec2_lexicon.py, and ltr_counter.py
+3. Follow instructions within Colab notebook
 
 ## Example of Wav2Vec2 with KenLM + Hotwords Pipeline
-
 ### Description
+*This is assuming you already have a trained/fine-tuned Wav2Vec2 model.*
 
+*UPDATE (12-22-21): This pipeline is now nearly identical to the Huggingface Transformers Wav2Vec2 + PyCTCDecode found [here](https://github.com/patrickvonplaten/Wav2Vec2_PyCTCDecode). The 
 ### Instructions
 **Necessary Installs:**
 
